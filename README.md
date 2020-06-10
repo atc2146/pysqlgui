@@ -1,7 +1,7 @@
 # :zap: Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)   
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)<br> 
   
-**Pysqlgui** is a *lightweight* package for interfacing intuitively with **SQL** in Python.
+**Pysqlgui** is a *lightweight* package for interfacing intuitively with **SQL** in Python.<br>
 
 ## :books: Features
 
@@ -16,7 +16,7 @@
 
 ## :memo: Usage
 
-Using Pysqlgui is **easy**!
+Using Pysqlgui is **easy**!<br>
 
 ```python
 import pysqlgui
@@ -76,15 +76,15 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 **Parameters**  
 **data** : list or dict, default=None  
-	*Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict
-	where the key is the table name and the value is the filepath to the 
-	CSV or a Pandas DataFrame.
+*Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict
+where the key is the table name and the value is the filepath to the 
+CSV or a Pandas DataFrame.
 
 **table_names** : list, default=None  
-	*List of names of the tables, must be provided if data is of type list.
+*List of names of the tables, must be provided if data is of type list.
 
 **name** : str, default=None  
-	*Name given to the database.
+*Name given to the database.
 
 
 
