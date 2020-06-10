@@ -1,0 +1,27 @@
+# compiled code
+*.py[co]
+__pycache__/
+*.py[cod]
+*$py.class
+
+# dev env
+.DS_Store
+.vscode/
+
+# distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs
+.pypirc
+.mypy_cache/
+
+# testing
+.cache
+.coverage*
+.pytest_cache/
+
+# other
+env/
+db.sqlite3
+upload-notes.txt
