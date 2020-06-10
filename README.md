@@ -73,11 +73,11 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 **Parameters**  
 
-* **data** : *list or dict*, default=None
+* **data** : *list or dict*, default=None, Optional
     * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
-* **table_names** : *list*, default=None
+* **table_names** : *list*, default=None, Optional
     * List of names of the tables, must be provided if data is of type list.
-* **name** : *str*, default=None
+* **name** : *str*, default=None, Optional
     * Name given to the database.
 
 Complete documentation coming very soon!
