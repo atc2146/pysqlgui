@@ -1,5 +1,5 @@
 # :zap: Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/)[![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)   
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)   
   
 **Pysqlgui** is a *lightweight* package for interfacing intuitively with SQL in Python.
 
@@ -41,7 +41,7 @@ pip install pysqlgui
 
 ## :book: Quick Guide 
 
-Instantiate a Database object.
+Instantiate a Database object and pass any data if you wish.
 
 ```python
 your_database_name = pysqlgui.Database()
@@ -63,7 +63,7 @@ Then call any of the methods below!
 ## :page_facing_up: Detailed Documentation
 
 ```python
-pysqlgui.Database(data=None, table_names=None, name=None) | Create a database. 
+pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 
 
@@ -71,7 +71,7 @@ pysqlgui.Database(data=None, table_names=None, name=None) | Create a database.
 
 Pysqlgui is built on the [sqlite3](https://docs.python.org/3/library/sqlite3.html) standard library.
 
-The sqlite3 Connection Object and Cursor Object is available to you:
+The sqlite3 [Connection Object](https://docs.python.org/3/library/sqlite3.html#cursor-objects) and [Cursor Object](https://docs.python.org/3/library/sqlite3.html#cursor-objects) is available to you:
 
 ```python
 Database.connection
