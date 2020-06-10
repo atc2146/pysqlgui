@@ -1,29 +1,22 @@
 # Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://shields.io/)  
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/)  
   
-**Pysqlgui** is a lightweight package for interfacing with SQL in Python.
+**Pysqlgui** is a lightweight package for interfacing intuitively with SQL in Python.
 
 ## Features
 
   - Run any valid SQL query.
-  - Import tables from CSV files or Pandas DataFrames. 
   - Clean and visually appealing query results with column names.
+  - Import tables from CSV files or Pandas DataFrames. 
   - Easily rename, create, or drop tables without writing long and complex queries.
   - Easily retrieve table information such as column type, default values, null constraints, and key constraints.
   - Helpful error messages.
   - And more!
 
-## Installation
-
-From [PyPi](https://pypi.org/project/pysqlgui "A lightweight and intuitive package to interface with SQL in Python.")
-
-```python
-pip install pysqlgui
-```
 
 ## Usage
 
-Using Pysqlgui is easy!
+Using Pysqlgui is **easy**!
 
 ```python
 import pysqlgui
@@ -31,10 +24,19 @@ import pysqlgui
 stores = pysqlgui.Database(['customers.csv'], ['CUSTOMERS'])
 
 stores.run_query('SELECT * FROM CUSTOMERS;')
+
 ```
 
 In the example above, I created a database called stores and imported data from the customers.csv file and named the table CUSTOMERS.  Note: you can pass other data formats or no data at all!
 
+
+## Installation
+
+From [PyPi](https://pypi.org/project/pysqlgui "A lightweight and intuitive package to interface with SQL in Python."):
+
+```python
+pip install pysqlgui
+```
 
 
 
