@@ -1,17 +1,17 @@
 # :zap: Pysqlgui
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)   
   
-**Pysqlgui** is a *lightweight* package for interfacing intuitively with SQL in Python.
+**Pysqlgui** is a *lightweight* package for interfacing intuitively with **SQL** in Python.
 
 ## :books: Features
 
-  - Run *any* valid SQL query.
+  - Run **_any_** valid SQL query.
   - Clean and **visually appealing** query results with column names.
-  - Import tables from CSV files or Pandas DataFrames. 
-  - Easily rename, create, or drop tables without writing long and complex queries.
-  - Easily retrieve table information such as column type, default values, null constraints, and key constraints.
-  - Helpful error messages.
-  - And more!
+  - Import tables from **CSV files** or **Pandas DataFrames**. 
+  - Easily **rename**, **create**, or **drop** tables without writing long and *complex* queries.
+  - Easily retrieve table information such as **column type**, **default values**, **null constraints**, and **key constraints**.
+  - Helpful **error messages**.
+  - And **more**!
 
 
 ## :memo: Usage
