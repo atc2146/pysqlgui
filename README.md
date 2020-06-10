@@ -5,8 +5,8 @@
 
 ## :books: Features
 
-  - Run any valid SQL query.
-  - Clean and visually appealing query results with column names.
+  - Run *any* valid SQL query.
+  - Clean and **visually appealing** query results with column names.
   - Import tables from CSV files or Pandas DataFrames. 
   - Easily rename, create, or drop tables without writing long and complex queries.
   - Easily retrieve table information such as column type, default values, null constraints, and key constraints.
@@ -41,6 +41,14 @@ pip install pysqlgui
 
 ## :book: Quick Guide 
 
+Instantiate a Database object.
+
+```python
+your_database_name = pysqlgui.Database(data=None, table_names=None, name=None) | Create a database. 
+```
+Then call any of the methods below!
+
+
 | Method | Summary |
 | ------ | ------ |
 | Database.run_query(query) | Run a SQL query. |
@@ -52,7 +60,7 @@ pip install pysqlgui
 | Database.drop_table(table_name) | Drop a table. |
 | Database.rename_table(table_name) | Rename a table. |
 
-### :page_facing_up: Examples
+## :page_facing_up: Detailed Documentation
 
 ```python
 pysqlgui.Database(data=None, table_names=None, name=None) | Create a database. 

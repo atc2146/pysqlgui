@@ -1,0 +1,31 @@
+﻿CUSTOMER_ID,FIRST_NAME,LAST_NAME,STATE,JOIN_DATE,GENDER,PHONE
+1,Milan,Wilkerson,CA,2017-05-27,Male,
+2,Raphael Jr.,Meza,TX,2019-07-17,Male,(570) 432-2386
+3,Jo,O'Connor,NY,2019-04-16,Female,
+4,Morgan,Berry,FL,2017-10-07,,
+5,Cassandra,Reeves,IL,2018-06-27,Female,
+6,Jayden,Flores,PA,2018-05-07,Male,(456) 634-1677
+7,Robert,Lambert-Lee,OH,2018-12-14,Male,
+8,Ralph,Levy,MI,2019-05-13,Male,
+9,Michelle,Park,GA,2017-04-13,Female,(211) 722-7118
+10,Aleisha,Mustafa,NC,2017-02-01,,
+11,John,Smith,NJ,2019-07-04,Male,
+12,Karen,Smith,VA,2018-04-19,Female,
+13,Xi Yu,Chen,WA,2019-04-14,,(496) 704-2768
+14,Pennington,Zhang,MA,2017-01-03,Male,(466) 745-5651
+15,Sameer,Patel,IN,2018-05-03,Male,
+16,Elizabeth,Nguyen,AZ,2019-03-01,Female,(613) 655-0475
+17,Mingzhi,Wang,TN,2017-09-08,Male,
+18,Jessica,Jones,MO,2019-11-01,Female,
+19,Kimberly,Li,MD,2019-09-14,Female,
+20,Julio,Garcia,WI,2017-02-03,,
+21,Ben,Suzuki,CA,2017-01-28,Male,(495) 331-6304
+22,Young,Kim,MA,2018-08-16,Male,
+23,John,Smith,NY,2019-10-25,,
+24,Robert,Williamson,CA,2018-02-22,Male,
+25,Lisa,Rodriguez,NJ,2017-08-25,Female,
+26,Oliva,Tremblay,NY,2018-04-07,Female,
+27,AJ,Brown,NY,2017-02-01,Female,
+28,Chad,Wang,NY,2017-08-31,Male,
+29,Lee-Won,Kim,IL,2018-04-25,,(288) 794-5286
+30,John,Lassanger,GA,2018-06-27,Male,
