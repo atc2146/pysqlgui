@@ -7,7 +7,7 @@
 
   - Run **_any_** valid SQL query.
   - Clean and **visually appealing** query results with column names.
-  - Import tables from **CSV files** or **Pandas DataFrames**. 
+  - Import tables from **CSV files** or **[Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)**. 
   - Easily **rename**, **create**, or **drop** tables without writing *long and complex* queries.
   - Easily retrieve table information such as **column type**, **default values**, **null constraints**, and **key constraints**.
   - Helpful **error messages**.
@@ -31,7 +31,7 @@ stores.run_query('SELECT * FROM CUSTOMERS;')
 
 
 
-Note: you can pass other data formats or no data at all!  Refer to [detailed documentation](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation "Detailed Documentation") below.
+*Note*: you can pass other data formats or no data at all!  Refer to [detailed documentation](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation "Detailed Documentation") below.
 
 
 ## :desktop_computer: Installation
