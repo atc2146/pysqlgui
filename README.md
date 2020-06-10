@@ -55,9 +55,7 @@ Then call any of the methods below!
 
 | Method | Summary |
 | ------ | ------ |
-| ```python
-Database.run_query(query)
-``` | Run a SQL query. |
+| `Database.run_query(query)` | Run a SQL query. |
 | Database.show(table_name) | Show the contents of a table. |
 | Database.info(table_name=None) | Summary information about the database. Pass a table name as an argument to get table information. |
 | Database.create_table(table_name, column_data) | Create an empty table. |
