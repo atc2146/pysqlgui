@@ -99,6 +99,12 @@ Database.cursor
 * Complete [function stubs](/pysqlgui/core_database.py).
 * Write [tests](/tests/tests.py).
 
+**Clone the repo**
+
+```sh
+$ git clone https://github.com/atc2146/pysqlgui.git
+```
+
 ## :copyright: License
 
 MIT © 2020 Alex Chung
