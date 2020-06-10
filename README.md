@@ -83,7 +83,8 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 <ul><li>Name given to the database.</ul></li>
 </ul>
 
-* First unordered list item
+* **data** : *list or dict*, default=None
+    * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
 * Second unordered list item
     * First **subunordered** list item
     * Second subunordered list item
