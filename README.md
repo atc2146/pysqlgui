@@ -69,7 +69,7 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 
 ## :gear: Development
 
-Pysqlgui is built on the [sqlite3](https://docs.python.org/3/library/sqlite3.html) standard library.
+Pysqlgui is built on the [sqlite3](https://docs.python.org/3/library/sqlite3.html) standard library.  
 
 The sqlite3 [Connection Object](https://docs.python.org/3/library/sqlite3.html#cursor-objects) and [Cursor Object](https://docs.python.org/3/library/sqlite3.html#cursor-objects) is available to you:
 
@@ -80,11 +80,11 @@ Database.cursor
 
 ## :pencil2: Contributing
 
-* Raise an issue if you encounter any bugs or would like any features.
-* Complete function stubs.
-* Write tests.
+* Raise an [issue](https://github.com/atc2146/pysqlgui/issues) if you encounter any bugs or would like any features.
+* Complete [function stubs](/pysqlgui/core_database.py).
+* Write [tests](/tests/tests.py).
 
 ## :copyright: License
 
-MIT
+MIT © 2020 Alexander Chung
 
