@@ -8,7 +8,7 @@
   - Run **_any_** valid SQL query.
   - Clean and **visually appealing** query results with column names.
   - Import tables from **CSV files** or **Pandas DataFrames**. 
-  - Easily **rename**, **create**, or **drop** tables without writing long and *complex* queries.
+  - Easily **rename**, **create**, or **drop** tables without writing *long and complex* queries.
   - Easily retrieve table information such as **column type**, **default values**, **null constraints**, and **key constraints**.
   - Helpful **error messages**.
   - And **more**!
@@ -21,13 +21,17 @@ Using Pysqlgui is **easy**!
 ```python
 import pysqlgui
 
+# Load a file and name the table
 stores = pysqlgui.Database(['customers.csv'], ['CUSTOMERS'])
 
+# Run a query
 stores.run_query('SELECT * FROM CUSTOMERS;')
 
 ```
 
-In the example above, I created a database called stores and imported data from the customers.csv file and named the table CUSTOMERS.  Note: you can pass other data formats or no data at all!
+
+
+Note: you can pass other data formats or no data at all!  Refer to [detailed documentation](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation "Detailed Documentation") below.
 
 
 ## :desktop_computer: Installation
