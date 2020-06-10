@@ -71,17 +71,19 @@ Then call any of the methods below!
 ```python 
 pysqlgui.Database(data=None, table_names=None, name=None)
 ```
->**Parameters**  
->**data** : list or dict, default=None  
->*Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
+**Parameters**  
+<ul>
+<li>**data** : list or dict, default=None</li>
+<ul><li>Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.</ul></li>
 
-**table_names** : list, default=None  
-*List of names of the tables, must be provided if data is of type list.
+<li>**table_names** : list, default=None</li>
+<ul><li>List of names of the tables, must be provided if data is of type list.</ul></li>
 
-**name** : str, default=None  
-*Name given to the database.
+<li>**name** : str, default=None</li>
+<ul><li>Name given to the database.</ul></li>
+</ul>
 
-
+Complete documentation coming very soon!
 
 ## :gear: Development
 
