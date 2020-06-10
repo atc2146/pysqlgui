@@ -1,7 +1,7 @@
 # :zap: Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/)  
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/)[![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)   
   
-**Pysqlgui** is a lightweight package for interfacing intuitively with SQL in Python.
+**Pysqlgui** is a *lightweight* package for interfacing intuitively with SQL in Python.
 
 ## :books: Features
 
@@ -44,7 +44,7 @@ pip install pysqlgui
 Instantiate a Database object.
 
 ```python
-your_database_name = pysqlgui.Database(data=None, table_names=None, name=None) | Create a database. 
+your_database_name = pysqlgui.Database()
 ```
 Then call any of the methods below!
 
