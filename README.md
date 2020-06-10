@@ -70,6 +70,8 @@ Then call any of the methods below!
 pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 
+#### ```python pysqlgui.Database(data=None, table_names=None, name=None)```
+
 
 ## :gear: Development
 
