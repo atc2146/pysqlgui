@@ -1,5 +1,6 @@
 # Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://shields.io/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://shields.io/)  
+
 **Pysqlgui** is a lightweight package for interfacing with SQL in Python.
 
 ## Features
@@ -14,7 +15,7 @@
 
 ## Installation
 
-From PyPi
+From [PyPi](https://pypi.org/project/pysqlgui "A lightweight and intuitive package to interface with SQL in Python.")
 
 ```python
 pip install pysqlgui
