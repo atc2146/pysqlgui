@@ -1,9 +1,9 @@
-# Pysqlgui
+# :zap: Pysqlgui
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/)  
   
 **Pysqlgui** is a lightweight package for interfacing intuitively with SQL in Python.
 
-## Features
+## :books: Features
 
   - Run any valid SQL query.
   - Clean and visually appealing query results with column names.
@@ -14,7 +14,7 @@
   - And more!
 
 
-## Usage
+## :memo: Usage
 
 Using Pysqlgui is **easy**!
 
@@ -30,7 +30,7 @@ stores.run_query('SELECT * FROM CUSTOMERS;')
 In the example above, I created a database called stores and imported data from the customers.csv file and named the table CUSTOMERS.  Note: you can pass other data formats or no data at all!
 
 
-## Installation
+## :desktop_computer: Installation
 
 From [PyPi](https://pypi.org/project/pysqlgui "A lightweight and intuitive package to interface with SQL in Python."):
 
@@ -39,7 +39,7 @@ pip install pysqlgui
 ```
 
 
-
+## :book: Quick Guide 
 
 | Method | Summary |
 | ------ | ------ |
@@ -52,14 +52,14 @@ pip install pysqlgui
 | Database.drop_table(table_name) | Drop a table. |
 | Database.rename_table(table_name) | Rename a table. |
 
-### Examples
+### :page_facing_up: Examples
 
 ```python
 pysqlgui.Database(data=None, table_names=None, name=None) | Create a database. 
 ```
 
 
-## Development
+## :gear: Development
 
 Pysqlgui is built on the [sqlite3](https://docs.python.org/3/library/sqlite3.html) standard library.
 
@@ -70,13 +70,13 @@ Database.connection
 Database.cursor
 ```
 
-## Contributing
+## :pencil2: Contributing
 
 * Raise an issue if you encounter any bugs or would like any features.
 * Complete function stubs.
 * Write tests.
 
-## License
+## :copyright: License
 
 MIT
 
