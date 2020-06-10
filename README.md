@@ -29,14 +29,14 @@ stores.run_query('SELECT * FROM CUSTOMERS;')
 
 ```
 
+If you are running code in a `Jupyter Notebook`, the output will be a Pandas DataFrame.  Otherwise, call print on the line above to print out the query result.
 
-
-*Note*: you can pass other data formats or no data at all!  Refer to [detailed documentation](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation "Detailed Documentation") below.
+**_Note_**: you can pass other data formats or no data at all!  Refer to [detailed documentation](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation "Detailed Documentation") below.
 
 
 ## :desktop_computer: Installation
 
-From [PyPi](https://pypi.org/project/pysqlgui):
+From **[PyPi](https://pypi.org/project/pysqlgui)**:
 
 ```python
 pip install pysqlgui
@@ -55,7 +55,9 @@ Then call any of the methods below!
 
 | Method | Summary |
 | ------ | ------ |
-| Database.run_query(query) | Run a SQL query. |
+| ```python
+Database.run_query(query)
+``` | Run a SQL query. |
 | Database.show(table_name) | Show the contents of a table. |
 | Database.info(table_name=None) | Summary information about the database. Pass a table name as an argument to get table information. |
 | Database.create_table(table_name, column_data) | Create an empty table. |
