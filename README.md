@@ -32,7 +32,7 @@ In the example above, I created a database called stores and imported data from 
 
 ## :desktop_computer: Installation
 
-From [PyPi](https://pypi.org/project/pysqlgui "A lightweight and intuitive package to interface with SQL in Python."):
+From [PyPi](https://pypi.org/project/pysqlgui):
 
 ```python
 pip install pysqlgui
@@ -86,5 +86,5 @@ Database.cursor
 
 ## :copyright: License
 
-MIT © 2020 Alexander Chung
+MIT © 2020 Alex Chung
 
