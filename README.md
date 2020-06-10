@@ -83,6 +83,12 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 <ul><li>Name given to the database.</ul></li>
 </ul>
 
+* First unordered list item
+* Second unordered list item
+    * First **subunordered** list item
+    * Second subunordered list item
+* Third unordered list item
+
 Complete documentation coming very soon!
 
 ## :gear: Development
