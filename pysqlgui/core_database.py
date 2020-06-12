@@ -69,11 +69,6 @@ class Database:
         """
         Returns summary information about the database.
 
-        Parameters
-        ----------
-        table_name : str
-            The name of the table.
-
         Returns
         -------
         Returns information in a Pandas DataFrame
@@ -90,24 +85,26 @@ class Database:
 
     def info(self, table_name=None):
         """
-        Returns summary information about a table.
+        Returns summary information about a the database or a table.
 
         Parameters
         ----------
-        table_name : str
-            The name of the table.
+        table_name : str, default=None, Optional
+            The name of the table.  If a name is not provided, returns summary
+            information about the database.
 
         Returns
         -------
-        Returns information in a Pandas DataFrame
+        Returns summary database or table information in a Pandas DataFrame.
         """
         if table_name is None:
             return self.summary()
         else:
             try:
+                self.get_table(table_name)
                 df = self.run_query(f"PRAGMA TABLE_INFO({table_name});")
                 df.rename(columns={'cid': 'Column ID',
-                                      'name': 'Name',
+                                      'name': 'Column Name',
                                       'type': 'Type',
                                       'notnull': 'Not NULL?',
                                       'dflt_value': 'Default Value',

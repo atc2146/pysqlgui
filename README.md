@@ -1,13 +1,13 @@
 # :zap: Pysqlgui
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)<br> 
-  
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)<br>
+
 **Pysqlgui** is a *lightweight* package for interfacing intuitively with **SQL** in Python.<br>
 
 ## :books: Features
 
   - Run **_any_** valid SQL query.
   - Clean and **visually appealing** query results with column names.
-  - Import tables from **CSV files** or **[Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)**. 
+  - Import tables from **CSV files** or **[Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)**.
   - Easily **rename**, **create**, or **drop** tables without writing *long and complex* queries.
   - Easily retrieve table information such as **column type**, **default values**, **null constraints**, and **key constraints**.
   - Helpful **error messages**.
@@ -43,9 +43,9 @@ pip install pysqlgui
 ```
 
 
-## :book: Quick Guide 
+## :book: Quick Guide
 
-Instantiate a Database object and pass any data if you wish.
+[Instantiate a Database object](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation) and pass any data if you wish.
 
 ```python
 your_database_name = pysqlgui.Database()
@@ -67,8 +67,8 @@ Then call any of the methods below!
 ## :page_facing_up: Detailed Documentation
 
 
-#### Creating a Database
-```python 
+#### Creating a database
+```python
 pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 **Parameters**  
@@ -79,6 +79,22 @@ pysqlgui.Database(data=None, table_names=None, name=None)
     * List of names of the tables, must be provided if data is of type list.
 * **name** : *str*, default=None, Optional
     * Name given to the database.
+
+#### Summary information about the database
+```python
+pysqlgui.Database.info(table_name=None)
+```
+
+Returns summary information about a the database or a table.
+
+**Parameters**
+----------
+* **table_name** : *str*, default=None, Optional
+    The name of the table.  If a name is not provided, returns summary information about the database.
+
+**Returns**
+* Returns summary database or table information in a Pandas DataFrame.
+
 
 Complete documentation coming very soon!
 
@@ -108,4 +124,3 @@ $ git clone https://github.com/atc2146/pysqlgui.git
 ## :copyright: License
 
 MIT © 2020 Alex Chung
-
