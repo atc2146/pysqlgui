@@ -131,11 +131,13 @@ Database.connection
 Database.cursor
 ```
 
+You can find sample data used for some of the examples [here](/examples).
+
 ## :pencil2: Contributing
 
 * Raise an [issue](https://github.com/atc2146/pysqlgui/issues) if you encounter any bugs or would like any features.
 * Complete [function stubs](/pysqlgui/core_database.py).
-* Write [tests](/tests/tests.py).
+* Write [tests](/tests). See [instructions](/tests/how-to-run-tests-instructions.txt) on how to run tests.
 
 **Clone the repo**
 
@@ -145,4 +147,4 @@ $ git clone https://github.com/atc2146/pysqlgui.git
 
 ## :copyright: License
 
-MIT © 2020 Alex Chung
+[MIT](LICENSE.txt) © 2020 Alex Chung

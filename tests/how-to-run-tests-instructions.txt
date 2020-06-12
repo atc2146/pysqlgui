@@ -2,8 +2,8 @@ Install pytest
 Install tox
 
 Run either:
-python -m unittest tests/tests_unittest.py
-python -m tox tests/tests_pytest.py
+python -m unittest tests/test_unittest.py
+python -m tox tests/test_pytest.py
 
 Will be mostly using pytest (via tox)
 

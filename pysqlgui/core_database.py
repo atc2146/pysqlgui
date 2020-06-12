@@ -470,6 +470,3 @@ def stringify(item):
         return f"'{item}'"
     else:
         return str(item)
-
-def some_random_3():
-	return 5
