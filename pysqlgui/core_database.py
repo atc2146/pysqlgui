@@ -71,7 +71,8 @@ class Database:
 
         Returns
         -------
-        Returns information in a Pandas DataFrame
+        Pandas DataFrame
+            Returns summary information about the database.
         """
         table_info = []
 
@@ -129,7 +130,9 @@ class Database:
 
         Returns
         -------
-        A Pandas DataFrame if the query is of SELECT or PRAGMA type, None otherwise.
+        Pandas DataFrame, or None
+            Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type,
+            None otherwise.
         """
         if query.lstrip().upper().startswith("SELECT") or query.lstrip().upper().startswith("PRAGMA"):
             return self.select(query)

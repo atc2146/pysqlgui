@@ -68,3 +68,18 @@ def test_info_on_existent_table():
 	assert set(list(df.columns.values)) == {'Column ID', 'Column Name', 'Type', 'Not NULL?', 'Default Value', 'Primary Key?'}
 	assert all(df[df['Column Name'] == 'Primary Key?'])
 	assert any(df[df['Column Name'] == 'age'])
+
+def test_run_query_simple_select():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	assert isinstance(db.run_query('SELECT * FROM example_table'), pd.DataFrame)
+	assert not db.run_query('SELECT * FROM example_table').empty
+
+def test_run_query_with_pragma():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	assert isinstance(db.run_query('''PRAGMA TABLE_INFO('example_table')'''), pd.DataFrame)
+	assert not db.run_query('''PRAGMA TABLE_INFO('example_table')''').empty
+
+def test_run_query_wrong_syntax():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	with pytest.raises(ValueError):
+		db.run_query('SELECT * FROMMMMM example_table')
