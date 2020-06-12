@@ -57,7 +57,7 @@ Then call any of the methods below!
 | --------- | ------ |
 | `Database.run_query(query)` | Run a SQL query. |
 | `Database.show(table_name)` | Show the contents of a table. |
-| `Database.info(table_name=None)` | Summary information about the database. Pass a table name as an argument to get table information. |
+| `Database.info(table_name=None)` | [Summary information](https://github.com/atc2146/pysqlgui#summary-information-about-the-database) about the database. Pass a table name as an argument to get table information. |
 | `Database.create_table(table_name, column_data)` | Create an empty table. |
 | `Database.add_table(data, table_names=None)` | Add a table to the database from a CSV file or Pandas DataFrame. |
 | `Database.insert_data(table_name, data)` | Insert data into a table. |
@@ -80,21 +80,25 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 * **name** : *str*, default=None, Optional
     * Name given to the database.
 
+---
+
 #### Summary information about the database
 ```python
 pysqlgui.Database.info(table_name=None)
 ```
 
----
-
-Returns summary information about a the database or a table.
+Returns summary information about the database or a table.
 
 **Parameters**
-* **table_name** : *str*, default=None, Optional
+* **table_name** : *str*, default=None, Optional  
     The name of the table.  If a name is not provided, returns summary information about the database.
 
 **Returns**
-* Returns summary database or table information in a Pandas DataFrame.
+* Pandas DataFrame
+    * Returns summary database or table information in a Pandas DataFrame.
+
+---
+
 
 
 Complete documentation coming very soon!

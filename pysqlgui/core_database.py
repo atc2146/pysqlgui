@@ -85,7 +85,7 @@ class Database:
 
     def info(self, table_name=None):
         """
-        Returns summary information about a the database or a table.
+        Returns summary information about the database or a table.
 
         Parameters
         ----------
@@ -95,7 +95,8 @@ class Database:
 
         Returns
         -------
-        Returns summary database or table information in a Pandas DataFrame.
+        Pandas DataFrame
+            Summary database or table information in a Pandas DataFrame.
         """
         if table_name is None:
             return self.summary()
