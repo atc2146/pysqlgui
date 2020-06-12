@@ -91,10 +91,10 @@ Returns summary information about the database or a table.
 
 **Parameters**
 * **table_name** : *str*, default=None, Optional  
-    The name of the table.  If a name is not provided, returns summary information about the database.
+    * The name of the table.  If a name is not provided, returns summary information about the database.
 
 **Returns**
-* Pandas DataFrame
+* **Pandas DataFrame**
     * Returns summary database or table information in a Pandas DataFrame.
 
 ---
