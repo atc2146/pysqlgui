@@ -1,8 +1,9 @@
-from unittest import TestCase
+import unittest
+
 from pysqlgui import core_database
 
+class TestMethods(unittest.TestCase):
 
-class TestFunc(TestCase):
 	def test_func_1(self):
 		"""
 		"""
