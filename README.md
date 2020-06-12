@@ -85,10 +85,11 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 pysqlgui.Database.info(table_name=None)
 ```
 
+---
+
 Returns summary information about a the database or a table.
 
 **Parameters**
-----------
 * **table_name** : *str*, default=None, Optional
     The name of the table.  If a name is not provided, returns summary information about the database.
 
