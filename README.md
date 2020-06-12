@@ -55,7 +55,7 @@ Then call any of the methods below!
 
 | Method | Summary |
 | --------- | ------ |
-| `Database.run_query(query)` | [Run a SQL query.](#pysqlgui#run-a-sql-query) |
+| `Database.run_query(query)` | [Run a SQL query.](https://github.com/atc2146/pysqlgui#run-a-sql-query) |
 | `Database.show(table_name)` | Show the contents of a table. |
 | `Database.info(table_name=None)` | [Summary information](https://github.com/atc2146/pysqlgui#summary-information-about-the-database) about the database. Pass a table name as an argument to get table information. |
 | `Database.create_table(table_name, column_data)` | Create an empty table. |
@@ -93,7 +93,7 @@ Runs a SQL query.
     * A SQL query.
 
 **Returns**
-* **Pandas DataFrame**
+* **Pandas DataFrame, or None**
     * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type,
       None otherwise.
 
