@@ -1,0 +1,10 @@
+Install pytest
+Install tox
+
+Run either:
+python -m unittest tests/tests_unittest.py
+python -m tox tests/tests_pytest.py
+
+Will be mostly using pytest (via tox)
+
+Edit the tox.ini file if necessary

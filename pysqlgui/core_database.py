@@ -385,6 +385,18 @@ class Database:
         """
         return self.select(f'SELECT * FROM {table_name};')
 
+### TO DO - FUNCTION STUBS
+    def right_join(self):
+        pass
+
+    def outer_join(self):
+        pass
+    
+    def history(self):
+        pass
+    
+    def truncate(self):
+        pass
     
 ### HELPER FUNCTIONS - WHERE SHOULD I PUT THIS?
 
@@ -443,15 +455,5 @@ def stringify(item):
     else:
         return str(item)
     
-### TO DO - FUNCTION STUBS
-    def right_join(self):
-        pass
-    
-    def outer_join(self):
-        pass
-    
-    def history(self):
-        pass
-    
-    def truncate(self):
-        pass
+def some_random_3():
+	return 5
