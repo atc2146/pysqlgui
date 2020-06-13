@@ -124,7 +124,6 @@ import pandas as pd
 df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
 my_db = psg.Database([df], ['USERS'])
 my_db.run_query('SELECT * FROM USERS;')
-
 ```
 
 ---
@@ -152,7 +151,6 @@ my_db = psg.Database([df], ['USERS'])
 
 my_db.info() # database info
 my_db.info('USERS') # table info
-
 ```
 
 ---
@@ -207,6 +205,7 @@ my_db = psg.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})]
                      'MY_DB_NAME')
 my_db.rename_table('USERS', 'USERS_NEW_NAME')
 ```
+
 ---
 Complete documentation coming very soon!
 
