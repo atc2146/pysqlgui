@@ -172,6 +172,15 @@ Adds one or more Table objects to the current Database instance.
 **Returns**
 * **None**
 
+```python
+import pysqlgui as psg
+import pandas as pd
+
+my_db = psg.Database()
+df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
+my_db.add_table([df], ['USERS'])
+```
+
 ---
 
 #### Rename a table
@@ -189,7 +198,15 @@ Renames a table in the database.
 **Returns**
 * **None**
 
+```python
+import pysqlgui as psg
+import pandas as pd
 
+my_db = psg.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'],
+                     'MY_DB_NAME')
+my_db.rename_table('USERS', 'USERS_NEW_NAME')
+```
 ---
 Complete documentation coming very soon!
 
