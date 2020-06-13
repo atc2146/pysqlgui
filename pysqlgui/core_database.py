@@ -223,7 +223,7 @@ class Database:
                 # assume CSV, fix for other types?
                 table = pd.read_csv(table)
 
-            table.to_sql(name, con=self.connection, index=False)
+            table.to_sql(name, con=self.connection, if_exists='append', index=False)
             self.tables.append(Table(table, name))
 
     def rename_table(self, table_name, change_to):
@@ -258,7 +258,7 @@ class Database:
             print(f'Successfully renamed {table_name} to {change_to}.')
         except:
             raise ValueError('Could not rename table.')
-
+########################### Continue from here
     def drop_table(self, table_name):
         """
         Drops a table in the database.

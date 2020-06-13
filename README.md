@@ -36,12 +36,11 @@ If you are running code in a `Jupyter Notebook`, the output will be a Pandas Dat
 
 ## :desktop_computer: Installation
 
-From **[PyPi](https://pypi.org/project/pysqlgui)**:
+From **[PyPi](https://pypi.org/project/pysqlgui)** (recommended):
 
-```python
-pip install pysqlgui
+```sh
+$ pip install pysqlgui
 ```
-
 
 ## :book: Quick Guide
 
@@ -78,6 +77,25 @@ pysqlgui.Database(data=None, table_names=None, name=None)
     * List of names of the tables, must be provided if data is of type list.
 * **name** : *str*, default=None, Optional
     * Name given to the database.
+
+```python
+# empty database
+db_example_1 = psg.Database()
+
+# from csv file via list notation
+db_example_2 = psg.Database(['customers.csv'], ['CUSTOMERS'])
+
+# from csv file via dict notation
+db_example_3 = psg.Database({'CUSTOMERS': 'customers.csv'})
+
+# from a Pandas DataFrame
+df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
+db_example_4 = psg.Database([df], ['USERS'])
+
+# from a combination
+db_example_5 = psg.Database([df, 'customers.csv'], ['USERS', 'CUSTOMERS'])
+db_example_6 = psg.Database({'CUSTOMERS': 'customers.csv', 'USERS': df})
+```
 
 ---
 
