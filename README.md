@@ -86,6 +86,7 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 pysqlgui.Database.run_query(self, query: str)
 ```
 Runs a SQL query.  
+
 **Parameters**
 * **query** : *str*
     * A SQL query.  
@@ -134,6 +135,7 @@ Adds one or more Table objects to the current Database instance.
 pysqlgui.Database.rename_table(self, table_name, change_to)
 ```
 Renames a table in the database.  
+
 **Parameters**  
 * **table_name** : *str*
     * The name of the table to be renamed.
