@@ -26,7 +26,6 @@ stores = pysqlgui.Database(['customers.csv'], ['CUSTOMERS'])
 
 # Run a query
 stores.run_query('SELECT * FROM CUSTOMERS;')
-
 ```
 
 If you are running code in a `Jupyter Notebook`, the output will be a Pandas DataFrame.  Otherwise, call print on the line above to print out the query result.
