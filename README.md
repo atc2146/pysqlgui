@@ -59,10 +59,10 @@ Then call any of the methods below!
 | `Database.show(table_name)` | Show the contents of a table. |
 | `Database.info(table_name=None)` | [Summary information](https://github.com/atc2146/pysqlgui#summary-information-about-the-database) about the database. Pass a table name as an argument to get table information. |
 | `Database.create_table(table_name, column_data)` | Create an empty table. |
-| `Database.add_table(data, table_names=None)` | Add a table to the database from a CSV file or Pandas DataFrame. |
+| `Database.add_table(data, table_names=None)` | [Add a table](https://github.com/atc2146/pysqlgui#add-a-table) to the database from a CSV file or Pandas DataFrame. |
 | `Database.insert_data(table_name, data)` | Insert data into a table. |
 | `Database.drop_table(table_name)` | Drop a table. |
-| `Database.rename_table(table_name)` | Rename a table. |
+| `Database.rename_table(table_name, change_to)` | [Rename a table.](https://github.com/atc2146/pysqlgui#rename-a-table) |
 
 ## :page_facing_up: Detailed Documentation
 
@@ -72,7 +72,6 @@ Then call any of the methods below!
 pysqlgui.Database(data=None, table_names=None, name=None)
 ```
 **Parameters**  
-
 * **data** : *list or dict*, default=None, Optional
     * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
 * **table_names** : *list*, default=None, Optional
@@ -87,15 +86,12 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 pysqlgui.Database.run_query(self, query: str)
 ```
 Runs a SQL query.
-
 **Parameters**
 * **query** : *str*
     * A SQL query.
-
 **Returns**
 * **Pandas DataFrame, or None**
-    * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type,
-      None otherwise.
+    * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type, None otherwise. Note, all valid SQL is allowed including CREATE, INSERT, DROP, etc.
 
 ---
 
@@ -103,21 +99,48 @@ Runs a SQL query.
 ```python
 pysqlgui.Database.info(table_name=None)
 ```
-
 Returns summary information about the database or a table.
-
 **Parameters**
 * **table_name** : *str*, default=None, Optional  
     * The name of the table.  If a name is not provided, returns summary information about the database.
-
 **Returns**
 * **Pandas DataFrame**
     * Returns summary database or table information in a Pandas DataFrame.
 
 ---
 
+#### Add a table
+```python
+pysqlgui.Database.add_table(self, data, table_names=None)
+```
+Adds one or more Table objects to the current Database instance.
+**Parameters**  
+* **data** : *list or dict*
+    * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
+* **table_names** : *list*, default=None, Optional
+    * List of names of the tables, must be provided if data is of type list.
+
+**Returns**
+* **None**
+
+---
+
+#### Rename a table
+```python
+pysqlgui.Database.rename_table(self, table_name, change_to)
+```
+Renames a table in the database.
+**Parameters**  
+* **table_name** : *str*
+    * The name of the table to be renamed.
+* **change_to** : *str*
+    * The new name of the table.
+
+**Returns**
+* **None**
 
 
+---
 Complete documentation coming very soon!
 
 ## :gear: Development

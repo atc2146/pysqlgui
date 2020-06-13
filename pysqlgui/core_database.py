@@ -132,7 +132,8 @@ class Database:
         -------
         Pandas DataFrame, or None
             Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type,
-            None otherwise.
+            None otherwise. Note, all valid SQL is allowed including CREATE, INSERT,
+            DROP, etc.
         """
         if query.lstrip().upper().startswith("SELECT") or query.lstrip().upper().startswith("PRAGMA"):
             return self.select(query)
@@ -156,6 +157,7 @@ class Database:
         Returns
         -------
         Pandas DataFrame
+            Of the query.
         """
         try:
             self.cursor.execute(query)
@@ -164,9 +166,9 @@ class Database:
             df = pd.DataFrame(data=result, columns=column_names)
             return df
         except:
-            raise ValueError(f'ValueError - Could not execute given query: {query}')
+            raise ValueError(f'Could not execute given query: {query}') # might want to truncate this
 
-    #allow strings?
+    # allow strings?
     def add_table(self, data, table_names=None):
         """
         Adds one or more Table objects to the current Database instance.
@@ -178,7 +180,7 @@ class Database:
             where the key is the table name and the value is the filepath to the
             CSV or a Pandas DataFrame.
 
-        table_names : list, default=None
+        table_names : list, default=None, Optional
             List of names of the tables, must be provided if data is of type list.
 
         Returns
@@ -190,7 +192,7 @@ class Database:
         if table_names is None:
             table_names = []
 
-        if not data:
+        if data is None:
             # data is empty
             pass
         elif isinstance(data, dict):
@@ -211,14 +213,14 @@ class Database:
             # Note if more table_names are given than there are tables, the extra
             # table_names are ignored
         else:
-            raise TypeError(f"""TypeError - expected list() or dict()""")
+            raise TypeError(f"""Expected list or dict.""")
 
 
         for name, table in tables_dict.items():
             if not isinstance(name, str):
-                raise TypeError(f"""TypeError - table name expected str, got {type(name)}""")
+                raise TypeError(f"""Table name expected to be str, got {type(name)}""")
             if not isinstance(table, pd.DataFrame):
-                # assume CSV, FIX for other types?
+                # assume CSV, fix for other types?
                 table = pd.read_csv(table)
 
             table.to_sql(name, con=self.connection, index=False)
@@ -244,9 +246,9 @@ class Database:
         # check for valid table names
         if isinstance(change_to, str):
             if len(change_to) == 0:
-                raise ValueError(f'Value error - expected len(change_to) > 0, got {len(change_to)}')
+                raise ValueError(f'Expected len(change_to) > 0, got {len(change_to)}')
         else:
-            raise TypeError(f'Type error - expected str, got {type(change_to)}')
+            raise TypeError(f'Expected str, got {type(change_to)}')
 
         try:
             table = self.get_table(table_name)

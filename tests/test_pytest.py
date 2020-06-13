@@ -83,3 +83,92 @@ def test_run_query_wrong_syntax():
 	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
 	with pytest.raises(ValueError):
 		db.run_query('SELECT * FROMMMMM example_table')
+
+def test_select_simple_query():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	assert not db.select('''SELECT * FROM example_table''').empty
+
+def test_select_wrong_syntax():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	with pytest.raises(ValueError):
+		db.select('SELECT * FROMMMMM example_table')
+
+def test_add_table_valid_data_in_list_but_no_table_name():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.add_table([df])
+
+def test_add_table_empty_data_no_table_name():
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.add_table(None, None)
+	assert num_of_tables == len(db.tables)
+
+def test_add_table_empty_data_with_table_name():
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.add_table(None, ['example_table'])
+	assert num_of_tables == len(db.tables)
+
+def test_add_table_but_wrong_agrument_types_1():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	with pytest.raises(TypeError):
+		db.add_table([df], 'example_table')
+
+def test_add_table_but_wrong_agrument_types_2():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	with pytest.raises(TypeError):
+		db.add_table(df, 'example_table')
+
+def test_add_table_but_wrong_agrument_types_3():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	with pytest.raises(TypeError):
+		db.add_table(df, ['example_table'])
+
+def test_add_table_valid_data_in_list_and_table_name_in_list():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.add_table([df], ['example_table'])
+	assert num_of_tables == len(db.tables) - 1
+
+def test_add_table_valid_data_in_dict():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.add_table({'example_table': df})
+	assert num_of_tables == len(db.tables) - 1
+
+def test_add_table_valid_data_in_dict_but_wrong_key_value_order():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database()
+	with pytest.raises(TypeError):
+		db.add_table({df: 'example_table'})
+
+def test_rename_table():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database([df], ['table_1'])
+	assert db.rename_table('table_1', 'table_1_new_name') is None
+	assert db.get_table('table_1_new_name').name == 'table_1_new_name'
+
+def test_rename_table_empty_string():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database([df], ['table_1'])
+	with pytest.raises(ValueError):
+		db.rename_table('table_1', '')
+
+def test_rename_table_not_a_string():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database([df], ['table_1'])
+	with pytest.raises(TypeError):
+		db.rename_table('table_1', ['a_list'])
+
+def test_rename_table_which_doesnt_exist():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database([df], ['table_1'])
+	with pytest.raises(ValueError):
+		db.rename_table('some_table_name_that_doesnt_exist', 'new_name')
