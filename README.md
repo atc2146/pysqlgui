@@ -88,7 +88,7 @@ pysqlgui.Database.run_query(self, query: str)
 Runs a SQL query.
 **Parameters**
 * **query** : *str*
-    * A SQL query.
+    * A SQL query.  
 **Returns**
 * **Pandas DataFrame, or None**
     * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type, None otherwise. Note, all valid SQL is allowed including CREATE, INSERT, DROP, etc.
@@ -99,10 +99,10 @@ Runs a SQL query.
 ```python
 pysqlgui.Database.info(table_name=None)
 ```
-Returns summary information about the database or a table.
+Returns summary information about the database or a table.  
 **Parameters**
 * **table_name** : *str*, default=None, Optional  
-    * The name of the table.  If a name is not provided, returns summary information about the database.
+    * The name of the table.  If a name is not provided, returns summary information about the database.  
 **Returns**
 * **Pandas DataFrame**
     * Returns summary database or table information in a Pandas DataFrame.
@@ -113,7 +113,7 @@ Returns summary information about the database or a table.
 ```python
 pysqlgui.Database.add_table(self, data, table_names=None)
 ```
-Adds one or more Table objects to the current Database instance.
+Adds one or more Table objects to the current Database instance.  
 **Parameters**  
 * **data** : *list or dict*
     * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
