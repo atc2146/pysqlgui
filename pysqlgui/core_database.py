@@ -142,6 +142,9 @@ class Database:
                 self.cursor.executescript(query)
                 self.connection.commit()
                 print(f'Successfully ran query: {query}.') # Might want to slice this when displaying
+				#if query.lstrip().upper().startswith("CREATE"):
+				#	pass
+				# add Table Object to Database
             except:
                 raise ValueError(f'Could not run query: {query}.')
 

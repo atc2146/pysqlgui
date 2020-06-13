@@ -79,6 +79,9 @@ pysqlgui.Database(data=None, table_names=None, name=None)
     * Name given to the database.
 
 ```python
+import pysqlgui as psg
+import pandas as pd
+
 # empty database
 db_example_1 = psg.Database()
 
@@ -113,6 +116,17 @@ Runs a SQL query.
 * **Pandas DataFrame, or None**
     * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type, None otherwise. Note, all valid SQL is allowed including CREATE, INSERT, DROP, etc.
 
+```python
+import pysqlgui as psg
+import pandas as pd
+
+# SELECT data
+df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
+my_db = psg.Database([df], ['USERS'])
+my_db.run_query('SELECT * FROM USERS;')
+
+```
+
 ---
 
 #### Summary information about the database
@@ -128,6 +142,18 @@ Returns summary information about the database or a table.
 **Returns**
 * **Pandas DataFrame**
     * Returns summary database or table information in a Pandas DataFrame.
+
+```python
+import pysqlgui as psg
+import pandas as pd
+
+df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
+my_db = psg.Database([df], ['USERS'])
+
+my_db.info() # database info
+my_db.info('USERS') # table info
+
+```
 
 ---
 
