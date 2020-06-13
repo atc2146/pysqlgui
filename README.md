@@ -85,10 +85,11 @@ pysqlgui.Database(data=None, table_names=None, name=None)
 ```python
 pysqlgui.Database.run_query(self, query: str)
 ```
-Runs a SQL query.
+Runs a SQL query.  
 **Parameters**
 * **query** : *str*
     * A SQL query.  
+
 **Returns**
 * **Pandas DataFrame, or None**
     * Returns a Pandas DataFrame if the query is of SELECT or PRAGMA type, None otherwise. Note, all valid SQL is allowed including CREATE, INSERT, DROP, etc.
@@ -100,9 +101,11 @@ Runs a SQL query.
 pysqlgui.Database.info(table_name=None)
 ```
 Returns summary information about the database or a table.  
+
 **Parameters**
 * **table_name** : *str*, default=None, Optional  
     * The name of the table.  If a name is not provided, returns summary information about the database.  
+
 **Returns**
 * **Pandas DataFrame**
     * Returns summary database or table information in a Pandas DataFrame.
@@ -114,6 +117,7 @@ Returns summary information about the database or a table.
 pysqlgui.Database.add_table(self, data, table_names=None)
 ```
 Adds one or more Table objects to the current Database instance.  
+
 **Parameters**  
 * **data** : *list or dict*
     * Can be a list (of filepaths to CSVs, or of Pandas DataFrames), or a dict where the key is the table name and the value is the filepath to the CSV or a Pandas DataFrame.
@@ -129,7 +133,7 @@ Adds one or more Table objects to the current Database instance.
 ```python
 pysqlgui.Database.rename_table(self, table_name, change_to)
 ```
-Renames a table in the database.
+Renames a table in the database.  
 **Parameters**  
 * **table_name** : *str*
     * The name of the table to be renamed.
