@@ -41,6 +41,12 @@ From **[PyPi](https://pypi.org/project/pysqlgui)**:
 $ pip install pysqlgui
 ```
 
+Upgrade to latest version 1.0.1 (Released June 14, 2020)
+```sh
+$ pip install pysqlgui --upgrade
+```
+
+
 ## :book: Quick Guide
 
 [Instantiate a Database object](https://github.com/atc2146/pysqlgui#page_facing_up-detailed-documentation) and pass any data if you wish.

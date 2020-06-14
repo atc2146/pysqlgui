@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pysqlgui", # Replace with your own username
-    version="1.0.0",
+    version="1.0.1",
     author="Alex Chung",
     description="A lightweight and intuitive package to interface with SQL in Python.",
     long_description=long_description,
