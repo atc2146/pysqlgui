@@ -261,7 +261,7 @@ class Database:
             print(f'Successfully renamed {table_name} to {change_to}.')
         except:
             raise ValueError('Could not rename table.')
-########################### Continue from here
+
     def drop_table(self, table_name):
         """
         Drops a table in the database.
@@ -286,14 +286,14 @@ class Database:
 
     def create_table(self, table_name, column_data):
         """
-        Creates an empty table in the database.
+        Creates an empty table in the database. Note: See [SQLite Datatypes](https://www.sqlite.org/datatype3.html).
 
         Parameters
         ----------
         table_name : str
             The name of the table to be created.
 
-        data : dict
+        column_data : dict
             Keys are the column names, and values
             are the type with any properties.
 
@@ -301,20 +301,28 @@ class Database:
         -------
         None
         """
-        query_cols = ""
-        count = 0
-        for k, v in column_data.items():
-            count += 1
-            if count == len(some_dict):
-                query_cols += k + " " + v
-            else:
-                query_cols += k + " " + v + ', '
+        if not isinstance(table_name, str):
+            raise ValueError(f'table_name must be str.')
+            if len(table_name) < 1:
+                raise ValueError(f'table_name must not be empty')
+        else:
+            try:
+                query_cols = ""
+                count = 0
+                for k, v in column_data.items():
+                    count += 1
+                    if count == len(column_data):
+                        query_cols += k + " " + v
+                    else:
+                        query_cols += k + " " + v + ', '
 
-        query = f"CREATE table {table_name}({query_cols});"
-        self.run_query(query)
-        print(f'Successfully CREATED {table_name}.')
-        self.tables.append(Table(pd.DataFrame(), table_name))
-
+                query = f"CREATE table {table_name}({query_cols});"
+                self.run_query(query)
+                print(f'Successfully CREATED {table_name}.')
+                self.tables.append(Table(pd.DataFrame(), table_name))
+            except:
+                raise ValueError(f'Could not create table.')
+########################### Continue from here
     def insert_data(self, table_name, data):
         """
         Inserts data into the table.

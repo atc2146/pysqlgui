@@ -35,7 +35,7 @@ If you are running code in a `Jupyter Notebook`, the output will be a Pandas Dat
 
 ## :desktop_computer: Installation
 
-From **[PyPi](https://pypi.org/project/pysqlgui)** (recommended):
+From **[PyPi](https://pypi.org/project/pysqlgui)**:
 
 ```sh
 $ pip install pysqlgui
@@ -56,10 +56,10 @@ Then call any of the methods below!
 | `Database.run_query(query)` | [Run a SQL query.](https://github.com/atc2146/pysqlgui#run-a-sql-query) |
 | `Database.show(table_name)` | Show the contents of a table. |
 | `Database.info(table_name=None)` | [Summary information](https://github.com/atc2146/pysqlgui#summary-information-about-the-database) about the database. Pass a table name as an argument to get table information. |
-| `Database.create_table(table_name, column_data)` | Create an empty table. |
+| `Database.create_table(table_name, column_data)` | [Create an empty table.](https://github.com/atc2146/pysqlgui#create-an-empty-table) |
 | `Database.add_table(data, table_names=None)` | [Add a table](https://github.com/atc2146/pysqlgui#add-a-table) to the database from a CSV file or Pandas DataFrame. |
 | `Database.insert_data(table_name, data)` | Insert data into a table. |
-| `Database.drop_table(table_name)` | Drop a table. |
+| `Database.drop_table(table_name)` | [Drop a table.](https://github.com/atc2146/pysqlgui#drop-a-table) |
 | `Database.rename_table(table_name, change_to)` | [Rename a table.](https://github.com/atc2146/pysqlgui#rename-a-table) |
 
 ## :page_facing_up: Detailed Documentation
@@ -154,6 +154,48 @@ my_db.info('USERS') # table info
 
 ---
 
+#### Create an empty table
+```python
+pysqlgui.Database.create_table(self, table_name, column_data)
+```
+Creates an empty table in the database. Note: See [SQLite Datatypes](https://www.sqlite.org/datatype3.html).    
+
+**Parameters**
+* **table_name** : *str*   
+    * The name of the table to be created.  
+
+* **column_data** : *dict*   
+    * Keys are the column names, and values are the type with any properties.  
+
+**Returns**
+* **None**
+
+```python
+import pysqlgui as psg
+import pandas as pd
+
+my_db = core_database.Database()
+my_db.create_table('users',
+                    {'user_id': 'INTEGER',
+                    'first_name': 'TEXT',
+                    'join_date': 'DATE',
+                    'score': 'FLOAT'})
+
+# create tables with additional properties
+my_db_2 = core_database.Database()
+my_db_2.create_table('users',
+                    {'user_id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
+                    'first_name': 'TEXT',
+                    'join_date': 'DATE'})
+my_db_2.create_table('articles',
+                    {'article_id': 'INTEGER PRIMARY KEY',
+                    'article_name': 'TEXT',
+                    'written_by': 'INTEGER REFERENCES users(user_id)'})
+
+```
+
+---
+
 #### Add a table
 ```python
 pysqlgui.Database.add_table(self, data, table_names=None)
@@ -176,6 +218,30 @@ import pandas as pd
 my_db = psg.Database()
 df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
 my_db.add_table([df], ['USERS'])
+```
+---
+
+#### Drop a table
+```python
+pysqlgui.Database.drop_table(self, table_name)
+```
+Drops a table in the database.  
+
+**Parameters**  
+* **table_name** : *str*
+    * The name of the table to be dropped.
+
+**Returns**
+* **None**
+
+```python
+import pysqlgui as psg
+import pandas as pd
+
+my_db = psg.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'],
+                     'MY_DB_NAME')
+my_db.drop_table('USERS')
 ```
 
 ---

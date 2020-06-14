@@ -172,3 +172,75 @@ def test_rename_table_which_doesnt_exist():
 	db = core_database.Database([df], ['table_1'])
 	with pytest.raises(ValueError):
 		db.rename_table('some_table_name_that_doesnt_exist', 'new_name')
+
+def test_drop_table_when_no_tables_exist():
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.drop_table("this_table_doesnt_exist")
+
+def test_drop_table_when_no_tables_exist_empty_string():
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.drop_table("")
+
+def test_drop_table():
+	df = pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])
+	db = core_database.Database([df], ['table_1'])
+	num_of_tables = len(db.tables)
+	db.drop_table('table_1')
+	assert num_of_tables == len(db.tables) + 1
+	with pytest.raises(ValueError):
+		db.get_table('table_1')
+
+def test_create_table_empty_string():
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.create_table('', {'user_id': 'INT'})
+
+def test_create_table_incorrect_table_name_format():
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.create_table(['not_a_string'], {'user_id': 'INT'})
+
+def test_create_table_incorrect_column_data_format():
+	db = core_database.Database()
+	with pytest.raises(ValueError):
+		db.create_table('not_a_string', [{'user_id': 'INT'}])
+
+def test_create_table():
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.create_table('example_table', {'user_id': 'INTEGER',
+              'first_name': 'TEXT',
+               'join_date': 'DATE',
+               'score': 'FLOAT'
+              })
+	assert num_of_tables == len(db.tables) - 1
+	assert db.get_table('example_table').name == 'example_table'
+	assert db.info().shape[0] == 1
+
+def test_create_table_with_primary_key():
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.create_table('example_table', {'user_id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
+              'first_name': 'TEXT',
+               'join_date': 'DATE',
+               'score': 'FLOAT'
+              })
+	assert num_of_tables == len(db.tables) - 1
+	assert db.get_table('example_table').name == 'example_table'
+	assert db.info().shape[0] == 1
+
+def test_create_table_with_primary_key_and_foreign_key():
+	db = core_database.Database()
+	num_of_tables = len(db.tables)
+	db.create_table('example_table_1', {'user_id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
+              'first_name': 'TEXT',
+               'join_date': 'DATE',
+               'score': 'FLOAT'
+              })
+	db.create_table('example_table_2', {'food_id': 'INTEGER',
+              'user_id': 'INTEGER REFERENCES example_table_1(user_id)'
+              })
+	assert num_of_tables == len(db.tables) - 2
+	assert db.info().shape[0] == 2
