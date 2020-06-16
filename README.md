@@ -164,7 +164,7 @@ my_db.info('USERS') # table info
 ```python
 pysqlgui.Database.create_table(self, table_name, column_data)
 ```
-Creates an empty table in the database. Note: See [SQLite Datatypes](https://www.sqlite.org/datatype3.html).    
+Creates an empty table in the database. See [SQLite Datatypes](https://www.sqlite.org/datatype3.html).    
 
 **Parameters**
 * **table_name** : *str*   
@@ -180,7 +180,7 @@ Creates an empty table in the database. Note: See [SQLite Datatypes](https://www
 import pysqlgui as psg
 import pandas as pd
 
-my_db = core_database.Database()
+my_db = psg.Database()
 my_db.create_table('users',
                     {'user_id': 'INTEGER',
                     'first_name': 'TEXT',
@@ -188,7 +188,7 @@ my_db.create_table('users',
                     'score': 'FLOAT'})
 
 # create tables with additional properties
-my_db_2 = core_database.Database()
+my_db_2 = psg.Database()
 my_db_2.create_table('users',
                     {'user_id': 'INTEGER PRIMARY KEY AUTOINCREMENT',
                     'first_name': 'TEXT',
