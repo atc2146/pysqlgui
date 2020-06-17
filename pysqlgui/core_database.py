@@ -322,26 +322,26 @@ class Database:
                 self.tables.append(Table(pd.DataFrame(), table_name))
             except:
                 raise ValueError(f'Could not create table.')
-########################### Continue from here
+
     def insert_data(self, table_name, data):
         """
-        Inserts data into the table.
+        Inserts data into the table.  Highly recommended to add via Pandas DataFrame.
 
         Parameters
         ----------
         table_name : str
             The name of the table.
 
-        data : dict or Pandas DataFrame
-            Keys are the column names, and values
-            are the column value.
+        data : Pandas DataFrame or dict
+            Pandas DataFrame with the corresponding columns.  Or a dict where
+            keys are the column names, and values are the column value.
 
         Returns
         -------
         None
         """
 
-        # CLEAN THIS UP!
+        # CLEAN THIS UP! and allow for more rows to be added
         if isinstance(data, dict):
             try:
                 table = self.get_table(table_name)
@@ -353,7 +353,6 @@ class Database:
 
                 table.df = table.df.append(pd.DataFrame.from_records([data]), ignore_index = True)
 #                 print(f'Successfully INSERTED values into {table_name}.')
-
             except:
                 raise ValueError('Could not INSERT values into table.')
         elif isinstance(data, pd.DataFrame):
@@ -370,19 +369,15 @@ class Database:
                 self.run_query(query)
                 table.df = table.df.append(data, ignore_index = True)
 #                 print(f'Successfully INSERTED values into {table_name}.')
-
             except:
                 raise ValueError('Could not INSERT values into table.')
         else:
-            raise TypeError(f'TypeError - Expected data to be dict or Pandas.Dataframe, got {type(data)}.')
-
+            raise TypeError(f'Expected data to be dict or Pandas.Dataframe, got {type(data)}.')
 
     # TO DO - Show within a certain range only?
     def show(self, table_name):
         """
-        Shows the contents of a table.
-
-        Equivalent to SELECT * FROM
+        Shows the contents of a table. Equivalent to SELECT * FROM.
 
         Parameters
         ----------
@@ -391,7 +386,7 @@ class Database:
 
         Returns
         -------
-        Pandas DataFrame
+            Pandas DataFrame of the table contents.
         """
         return self.select(f'SELECT * FROM {table_name};')
 

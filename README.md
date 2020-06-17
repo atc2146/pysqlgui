@@ -60,11 +60,11 @@ Then call any of the methods below!
 | Method | Summary |
 | --------- | ------ |
 | `Database.run_query(query)` | [Run a SQL query.](https://github.com/atc2146/pysqlgui#run-a-sql-query) |
-| `Database.show(table_name)` | Show the contents of a table. |
+| `Database.show(table_name)` | [Show the contents of a table.](https://github.com/atc2146/pysqlgui#show-table) |
 | `Database.info(table_name=None)` | [Summary information](https://github.com/atc2146/pysqlgui#summary-information-about-the-database) about the database. Pass a table name as an argument to get table information. |
 | `Database.create_table(table_name, column_data)` | [Create an empty table.](https://github.com/atc2146/pysqlgui#create-an-empty-table) |
 | `Database.add_table(data, table_names=None)` | [Add a table](https://github.com/atc2146/pysqlgui#add-a-table) to the database from a CSV file or Pandas DataFrame. |
-| `Database.insert_data(table_name, data)` | Insert data into a table. |
+| `Database.insert_data(table_name, data)` | [Insert data into a table.](https://github.com/atc2146/pysqlgui#insert-data) |
 | `Database.drop_table(table_name)` | [Drop a table.](https://github.com/atc2146/pysqlgui#drop-a-table) |
 | `Database.rename_table(table_name, change_to)` | [Rename a table.](https://github.com/atc2146/pysqlgui#rename-a-table) |
 
@@ -109,7 +109,7 @@ db_example_6 = psg.Database({'CUSTOMERS': 'customers.csv', 'USERS': df})
 
 #### Run a SQL query
 ```python
-pysqlgui.Database.run_query(self, query: str)
+pysqlgui.Database.run_query(query)
 ```
 Runs a SQL query.  
 
@@ -129,6 +129,31 @@ import pandas as pd
 df = pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})
 my_db = psg.Database([df], ['USERS'])
 my_db.run_query('SELECT * FROM USERS;')
+```
+
+---
+
+#### Show table
+```python
+pysqlgui.Database.show(table_name)
+```
+Shows the contents of a table. Equivalent to SELECT * FROM.    
+
+**Parameters**
+* **table_name** : *str*
+    * The table to show.  
+
+**Returns**
+* **Pandas DataFrame**
+    * Pandas DataFrame of the table contents.
+
+```python
+import pysqlgui as psg
+import pandas as pd
+
+db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['USERS'])
+db.show('USERS')
+
 ```
 
 ---
@@ -162,7 +187,7 @@ my_db.info('USERS') # table info
 
 #### Create an empty table
 ```python
-pysqlgui.Database.create_table(self, table_name, column_data)
+pysqlgui.Database.create_table(table_name, column_data)
 ```
 Creates an empty table in the database. See [SQLite Datatypes](https://www.sqlite.org/datatype3.html).    
 
@@ -204,7 +229,7 @@ my_db_2.create_table('articles',
 
 #### Add a table
 ```python
-pysqlgui.Database.add_table(self, data, table_names=None)
+pysqlgui.Database.add_table(data, table_names=None)
 ```
 Adds one or more Table objects to the current Database instance.  
 
@@ -227,9 +252,40 @@ my_db.add_table([df], ['USERS'])
 ```
 ---
 
+#### Insert data
+```python
+pysqlgui.Database.insert_data(table_name, data)
+```
+Inserts data into the table.  Highly recommended to add via Pandas DataFrame.
+
+**Parameters**  
+* **table_name** : *str*
+    * The name of the table to be renamed.
+* **data** : *Pandas DataFrame or dict*
+    * Pandas DataFrame with the corresponding columns.  Or a dict where keys are the column names, and values are the column value.
+
+**Returns**
+* **None**
+
+```python
+import pysqlgui as psg
+import pandas as pd
+
+my_db = psg.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+
+my_db.insert_data('USERS', pd.DataFrame({'name': ['Bob', 'Simram'], 'age': [22, 5]}))
+my_db.insert_data('USERS', {'name': 'Jordan', 'age': 23})
+
+```
+
+
+
+---
+
 #### Drop a table
 ```python
-pysqlgui.Database.drop_table(self, table_name)
+pysqlgui.Database.drop_table(table_name)
 ```
 Drops a table in the database.  
 
@@ -254,7 +310,7 @@ my_db.drop_table('USERS')
 
 #### Rename a table
 ```python
-pysqlgui.Database.rename_table(self, table_name, change_to)
+pysqlgui.Database.rename_table(table_name, change_to)
 ```
 Renames a table in the database.  
 

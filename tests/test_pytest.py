@@ -244,3 +244,61 @@ def test_create_table_with_primary_key_and_foreign_key():
               })
 	assert num_of_tables == len(db.tables) - 2
 	assert db.info().shape[0] == 2
+
+def test_insert_data_pandas_dataframe():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	more_data = pd.DataFrame({'name': ['Bob', 'Simram'], 'age': [22, 5]})
+	my_db.insert_data('USERS', more_data)
+	assert my_db.show('USERS').shape[0] == 4
+
+def test_insert_data_dict():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	my_db.insert_data('USERS', {'name': 'Bob', 'age': 22})
+	assert my_db.show('USERS').shape[0] == 3
+
+def test_insert_data_wrong_data_type():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	with pytest.raises(TypeError):
+		my_db.insert_data('USERS', [{'name': 'Bob', 'age': 22}])
+
+def test_insert_data_dict_wrong_column_name():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	with pytest.raises(ValueError):
+		my_db.insert_data('USERS', {'WRONG_NAME': 'Bob', 'age': 22})
+
+def test_insert_data_wrong_columns_in_new_data():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	more_data = pd.DataFrame({'name': ['Bob', 'Simram'], 'age': [22, 5], 'height': [170, 120]})
+	with pytest.raises(ValueError):
+		my_db.insert_data('USERS', more_data)
+
+def test_insert_data_wrong_column_name_in_new_data():
+	my_db = core_database.Database([pd.DataFrame({'name': ['John', 'Mary'], 'age': [32, 18]})],
+                     ['USERS'])
+	with pytest.raises(ValueError):
+		my_db.insert_data('USERS', pd.DataFrame({'WRONG_NAME': ['Bob', 'Simram'], 'age': [22, 5]}))
+
+def test_show():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	assert db.show('example_table').shape[0] == 3
+	assert isinstance(db.show('example_table'), pd.DataFrame)
+
+def test_show_non_existant_table():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	with pytest.raises(ValueError):
+		db.show('not_an_existing_table_name')
+
+def test_show_empty_table_name():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	with pytest.raises(ValueError):
+		db.show('')
+
+def test_show_table_name_not_a_string():
+	db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['example_table'])
+	with pytest.raises(ValueError):
+		db.show(['not_a_string'])
