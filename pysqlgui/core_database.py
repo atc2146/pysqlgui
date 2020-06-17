@@ -330,7 +330,7 @@ class Database:
         Parameters
         ----------
         table_name : str
-            The name of the table.
+            The name of the existing table to add data.
 
         data : Pandas DataFrame or dict
             Pandas DataFrame with the corresponding columns.  Or a dict where

@@ -151,8 +151,8 @@ Shows the contents of a table. Equivalent to SELECT * FROM.
 import pysqlgui as psg
 import pandas as pd
 
-db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15], ['juli', 14]], columns=['name', 'age'])],['USERS'])
-db.show('USERS')
+my_db = core_database.Database([pd.DataFrame([['tom', 10], ['bob', 15]], columns=['name', 'age'])],['USERS'])
+my_db.show('USERS')
 
 ```
 
@@ -260,7 +260,7 @@ Inserts data into the table.  Highly recommended to add via Pandas DataFrame.
 
 **Parameters**  
 * **table_name** : *str*
-    * The name of the table to be renamed.
+    * The name of the existing table to add data.
 * **data** : *Pandas DataFrame or dict*
     * Pandas DataFrame with the corresponding columns.  Or a dict where keys are the column names, and values are the column value.
 
