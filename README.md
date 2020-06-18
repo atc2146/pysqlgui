@@ -1,7 +1,7 @@
 # :zap: Pysqlgui
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/atc2146/pysqlgui/blob/master/LICENSE.txt) [![Generic badge](https://img.shields.io/badge/made_with-python-blue.svg)](https://www.python.org/) [![Generic badge](https://img.shields.io/badge/open_source-awesome-success.svg)](https://github.com/atc2146)<br>
 
-**Pysqlgui** is a *lightweight* package for interfacing intuitively with **SQL** in Python.<br>
+**Pysqlgui** is a *lightweight* package for interfacing with **SQL** in Python.<br>
 
 ## :books: Features
 
@@ -334,7 +334,7 @@ my_db.rename_table('USERS', 'USERS_NEW_NAME')
 ```
 
 ---
-Complete documentation coming very soon!
+
 
 ## :gear: Development
 
