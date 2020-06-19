@@ -395,9 +395,6 @@ class Database:
         """
         Closes the current Database connection.
 
-        Parameters
-        ----------
-
         Returns
         -------
         None
@@ -422,8 +419,7 @@ class Database:
     def truncate(self):
         pass
 
-### HELPER FUNCTIONS - WHERE SHOULD I PUT THIS?
-
+### HELPER FUNCTIONS
 def row_rep_query(data):
     """
     Returns a row representation of an INSERT statement,
