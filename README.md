@@ -11,12 +11,12 @@
   - Easily **rename**, **create**, or **drop** tables without writing *long and complex* queries.
   - Easily retrieve table information such as **column type**, **default values**, **null constraints**, and **key constraints**.
   - Helpful **error messages**.
-  - And **more**!
+  - And **more**.
 
 
 ## :memo: Usage
 
-Using Pysqlgui is **easy**!<br>
+Using Pysqlgui is **easy**.<br>
 
 ```python
 import pysqlgui
