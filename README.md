@@ -5,6 +5,7 @@
 
 ## :books: Features
 
+  - Create in memory databases.
   - Run **_any_** valid SQL query.
   - Clean and **visually appealing** query results with column names.
   - Import tables from **CSV files** or **[Pandas DataFrames](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html)**.
