@@ -11,16 +11,12 @@ class Table:
         """
         self.df = df
         self.name = name
-#         self.shape = self.get_shape() # rows, cols
                
-    def get_shape(self): #OTHER WAY TO code this?, i.e self.shape is useless right now
+    def get_shape(self):
+        """
+        Returns
+        -------
+        Tuple(int, int)
+            The shape of the Table (DataFrame)
+        """
         return self.df.shape
-    
-#     def alter(self):
-#         pass
-    
-#     def insert(self):
-#         pass
-    
-#     def delete(self):
-#         pass
